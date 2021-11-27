@@ -68,3 +68,54 @@ kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernete
 # Verify ebs-csi pods running
 kubectl get pods -n kube-system
 ```
+
+
+# You can follow also the procedure below taken from AWS documentation
+# Download the IAM policy document from GitHub.
+```
+curl -o example-iam-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-ebs-csi-driver/release-1.3/docs/example-iam-policy.json
+```
+
+# Create the policy. You can change AmazonEKS_EBS_CSI_Driver_Policy to a different name, but if you do, make sure to change it in later steps too.
+```
+aws iam create-policy \
+    --policy-name AmazonEKS_EBS_CSI_Driver_Policy \
+    --policy-document file://example-iam-policy.json
+```
+
+# replace mycluster with the relevant name replace 111122223333 with your account id 
+
+```
+eksctl create iamserviceaccount \
+    --name ebs-csi-controller-sa \
+    --namespace kube-system \
+    --cluster my-cluster \
+    --attach-policy-arn arn:aws:iam::111122223333:policy/AmazonEKS_EBS_CSI_Driver_Policy \
+    --approve \
+    --override-existing-serviceaccounts
+```
+
+
+# Add the respective helm repos
+
+```
+helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+helm repo update
+```
+
+
+# install the driver and replace 602401143452.dkr.ecr.eu-central-1.amazonaws.com depending on the region
+# from here https://docs.aws.amazon.com/eks/latest/userguide/add-ons-images.html
+```
+helm upgrade -install aws-ebs-csi-driver aws-ebs-csi-driver/aws-ebs-csi-driver \
+    --namespace kube-system \
+    --set image.repository=602401143452.dkr.ecr.eu-central-1.amazonaws.com/eks/aws-ebs-csi-driver\
+    --set controller.serviceAccount.create=false \
+    --set controller.serviceAccount.name=ebs-csi-controller-sa
+```
+
+
+
+
+
+
