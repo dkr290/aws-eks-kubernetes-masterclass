@@ -1,6 +1,5 @@
 # AWS EKS - Elastic Kubernetes Service - Masterclass
 
-[![Image](https://stacksimplify.com/course-images/AWS-EKS-Kubernetes-Masterclass-DevOps-Microservices-course.png "AWS EKS Kubernetes - Masterclass")](https://www.udemy.com/course/aws-eks-kubernetes-masterclass-devops-microservices/?referralCode=257C9AD5B5AF8D12D1E1)
 
 ## Course Modules
 
@@ -132,54 +131,4 @@
 | AWS Elastic Container Registry  | YOUR-AWS-ACCOUNT-ID.dkr.ecr.us-east-1.amazonaws.com/aws-ecr-kubenginx:DATETIME-REPOID  |
 | DevOps Usecase  | YOUR-AWS-ACCOUNT-ID.dkr.ecr.us-east-1.amazonaws.com/eks-devops-nginx:DATETIME-REPOID  |
 
-
-## Sample Applications
-- User Management Microservice
-- Notification Miroservice
-- Nginx Applications
-
-## What will students learn in your course?
-- You will write kubernetes manifests with confidence after going through live template writing sections
-- You will learn 30+ kubernetes concepts and use 18 AWS Services in combination with EKS
-- You will learn Kubernetes Fundamentals in both imperative and declarative approaches
-- You will learn writing & deploying k8s manifests for storage concepts like storage class, persistent volume claim pvc, mysql and EBS CSI Driver
-- You will learn to switch from native EBS Storage to RDS Database using k8s external name service
-- You will learn writing and deploying load balancer k8s manifests for Classic and Network load balancers
-- You will learn writing ingress k8s manifests by enabling features like context path based routing, SSL, SSL Redirect and External DNS. 
-- You will learn writing k8s manifests for advanced fargate profiles and do mixed mode workload deployments in both EC2 and Fargate Serverless
-- You will learn using ECR - Elastic Container Registry in combination with EKS. 
-- You will implement DevOps concepts with AWS Code Services like CodeCommit, CodeBuild and CodePipeline
-- You will implement microservices core cocepts like Service Discovery, Distributed Tracing using X-Ray and Canary Deployments
-- You will learn to enable Autoscaling features like HPA,VPA and Cluster Autoscaler
-- You will learn to enable monitoring and logging for EKS cluster and workloads in cluster using CloudWatch Container Insights
-- You will learn Docker fundamentals by implementing usecases like download image from Docker Hub and run on local desktop and build an image locally, test and push to Docker Hub.
-- You will slowly start by learning Docker Fundamentals and move on to Kubenetes. 
-- You will master many kubectl commands over the process
-
-## Are there any course requirements or prerequisites?
-- You must have an AWS account to follow with me for hands-on activities.
-- You dont need to have any basic Docker or kubernetes knowledge to start this course.  
-
-
-## Who are your target students?
-- AWS Architects or Sysadmins or Developers who are planning to master Elastic Kubernetes Service (EKS) for running applications on Kubernetes
-- Any beginner who is interested in learning kubernetes on cloud using AWS EKS. 
-- Any beginner who is interested in learning Kubernetes DevOps and Microservices deployments on Kubernetes
-
-## Each of my courses come with
-- Amazing Hands-on Step By Step Learning Experiences
-- Real Implementation Experience
-- Friendly Support in the Q&A section
-- 30 Day "No Questions Asked" Money Back Guarantee!
-
-## My Other AWS Courses
-- [Udemy Enroll](https://github.com/stacksimplify/udemy-enroll)
-
-## Stack Simplify Udemy Profile
-- [Udemy Profile](https://www.udemy.com/user/kalyan-reddy-9/)
-
-
-# Azure Kubernetes Service with Azure DevOps and Terraform 
-
-[![Image](https://stacksimplify.com/course-images/azure-kubernetes-service-with-azure-devops-and-terraform.png "Azure Kubernetes Service with Azure DevOps and Terraform")](https://www.udemy.com/course/azure-kubernetes-service-with-azure-devops-and-terraform/?referralCode=2499BF7F5FAAA506ED42)
 
