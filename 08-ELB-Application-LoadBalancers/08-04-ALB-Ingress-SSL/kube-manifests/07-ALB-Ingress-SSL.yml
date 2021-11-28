@@ -1,5 +1,5 @@
 # Annotations Reference:  https://kubernetes-sigs.github.io/aws-alb-ingress-controller/guide/ingress/annotation/
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-usermgmt-restapp-service
@@ -21,7 +21,7 @@ metadata:
     alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
     ## SSL Settings
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:180789647333:certificate/9f042b5d-86fd-4fad-96d0-c81c5abc71e1
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-central-1:506564311551:certificate/8a1524da-c06b-4ca9-acbe-8cd72dcfbbb8
     #alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-1-2017-01 #Optional (Picks default if not used)    
 spec:
   rules:
@@ -29,17 +29,26 @@ spec:
     - http:
         paths:
           - path: /app1/*
+            pathType: Prefix
             backend:
-              serviceName: app1-nginx-nodeport-service
-              servicePort: 80                        
+              service:
+                name: app1-nginx-nodeport-service
+                port: 
+                  number: 80                        
           - path: /app2/*
+            pathType: Prefix
             backend:
-              serviceName: app2-nginx-nodeport-service
-              servicePort: 80            
+              service:
+                name: app2-nginx-nodeport-service
+                port: 
+                  number: 80            
           - path: /*
+            pathType: Prefix
             backend:
-              serviceName: usermgmt-restapp-nodeport-service
-              servicePort: 8095              
+              service: 
+                name: usermgmt-restapp-nodeport-service
+                port:
+                  number: 8095                      
 # Important Note-1: In path based routing order is very important, if we are going to use  "/*", try to use it at the end of all rules.         
 
     
